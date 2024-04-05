@@ -1,0 +1,6 @@
+.github/
+.git
+.replit
+config.json
+node_modules
+package-lock.json

@@ -1,0 +1,7 @@
+{
+    "protocol": "https",
+    "domain": "example.com",
+    "port": 80,
+    "home": "./view/home/home.html",
+    "error": "./view/error/error.html"
+}

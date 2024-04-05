@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <link href="/ukiaio.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a6cc62b9ee.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>UptimeKuma in AIO | Docx | DBH</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="headbutton" id="backward">            
+            </div>
+            <div id="heading">
+                <h1>Docx For <a href="https://danbot.host/" class="DBH" target="_blank">DBH</a></h1>
+            </div>
+            <div class="headbutton" id="forward">              
+            </div>
+        </div>
+        
+    </header>
+    <nav>
+        <div id="navBar">
+            <a href="#guide"><div class="navBtn">
+                    <h3>Guide</h3>
+                </div>
+            </a>
+            <a href="#code"><div class="navBtn">
+                <h3>Code</h3>
+                </div>
+            </a>
+        </div>
+    </nav>
+    <main>
+        <h2><a href="https://github.com/louislam/uptime-kuma" target="_blank" class="aUptimeKuma">UptimeKuma</a> in <a href="https://github.com/DanBot-Hosting/pterodactyl-eggs/tree/aio" target="_blank" class="aAIO">AIO</a> | <a href="https://danbot.host/" target="_blank" class="aDanbotHosting">DanBot Hosting</a></h2>
+        <div id="uptimeKumaImg">
+            <img src="/src/img/uptimekuma/img.jpg" alt="UptimeKuma">
+        </div>
+        <div id="guide">
+            <p><a href="https://github.com/louislam/uptime-kuma" target="_blank" class="aUptimeKuma">UptimeKuma</a> is an open-source self-hosted monitoring solution that provides uptime monitoring, status pages, and incident management. It allows you to monitor the availability of your websites, APIs, and services, and notifies you when downtime occurs. Here's some information about <a href="https://github.com/louislam/uptime-kuma" target="_blank" class="aUptimeKuma">UptimeKuma</a> and how to set it up in <a href="https://github.com/DanBot-Hosting/pterodactyl-eggs/tree/aio" target="_blank" class="aAIO">AIO</a> | <a href="https://danbot.host/" target="_blank" class="aDanbotHosting">Danbot Hosting</a></p>
+        </div>
+        <div id="steps">
+            <h3>Steps</h3>
+            <ul>
+                <li type="disc">Create an <a href="https://github.com/DanBot-Hosting/pterodactyl-eggs/tree/aio" target="_blank" class="aAIO">AIO</a> server in <a href="https://danbot.host/" target="_blank" class="aDanbotHosting">Danbot Hosting</a>.</li>
+                <li>Once created, go to the console of your newly created server.</li>
+                <li>Run the following commands in your console to get started:</li>
+            </ul>
+        </div>
+        <div id="code">
+            <h3>Commands:</h3>
+            <div class="codeContainer" id="cmd1">
+                <div class="consoleCmd">git clone https://github.com/louislam/uptime-kuma.git</div>
+                <button class="copyButton" onclick="copyCommand('cmd1')"><i class="fa-solid fa-copy"></i></button>
+            </div>
+            <div class="codeContainer" id="cmd2">
+                <div class="consoleCmd">cd uptime-kuma</div>
+                <button class="copyButton" onclick="copyCommand('cmd2')"><i class="fa-solid fa-copy"></i></button>
+            </div>
+            <div class="codeContainer" id="cmd3">
+                <div class="consoleCmd">npm run setup</div>
+                <button class="copyButton" onclick="copyCommand('cmd3')"><i class="fa-solid fa-copy"></i></button>
+            </div>
+        </div>
+        <ul>
+            <li>Now, create a new file named <span class="spanEnv">.env</span> and put the following text inside it.</li>
+        </ul>
+        <div class="consoleCmd">
+            PORT=your-server-port
+        </div>
+        <ul>
+            <li>Now run the following command to start your server.</li>
+        </ul>
+        <div class="consoleCmd">
+            pm2 start server/server.js --name uptime-kuma
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <div class="footer">
+            <div id="thanksPage">
+                <p>Thanks for visiting our website! We hope our documentation helps you on your journey.</p>
+            </div>
+            <hr>
+            <div id="contact">
+                <h3>Contact Us:</h3>
+                <a href="mailto:mail@docx.uk.to">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCommand(elementId) {
+    var command = document.getElementById(elementId).querySelector(".consoleCmd").innerText;
+    var tempInput = document.createElement("input");
+    tempInput.value = command;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+}
+
+    </script>
+</body>
+</html>
