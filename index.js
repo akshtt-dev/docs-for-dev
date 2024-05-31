@@ -3,13 +3,8 @@ const app = express();
 const ansis = require('ansis');
 const { red, green, blue } = require('ansis');
 const config = require('./config.json');
-const fs = require('node:fs');
-const path = require('node:path');
-
-// Path for home file
-const home = fs.readFileSync(config.home, 'utf8');
-const docx = fs.readFileSync(config.docx, 'utf8');
-const ukiaio = fs.readFileSync(config.ukiaio, 'utf8');
+const fs = require('fs');
+const path = require('path');
 
 // Define directory containing static files (CSS, images)
 const staticDirectory = path.join(__dirname, 'public');
@@ -20,18 +15,18 @@ app.use(express.static(staticDirectory));
 // Reading Home File
 app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.send(home);
+    res.send(fs.readFileSync(config.home, 'utf8'));
 });
 
 app.get('/docx', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.send(docx);
+    res.send(fs.readFileSync(config.docx, 'utf8'));
 });
 
-app.get('/docx/dbh/ukiaio', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.send(ukiaio);
-});
+// app.get('/docx/dbh/ukiaio', (req, res) => {
+//     res.setHeader('Content-Type', 'text/html');
+//     res.send(fs.readFileSync(config.docx_dbh_ukiaio, 'utf8'));
+// });
 
 // Unknown requests
 app.use((req, res, next) => {

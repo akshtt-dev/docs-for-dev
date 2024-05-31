@@ -1,7 +1,7 @@
 {
-    "protocol": "https",
-    "domain": "example.com",
+    "protocol": "http",
+    "domain": "localhost",
     "port": 80,
-    "home": "./view/home/home.html",
+    "home": "./view/home/index.html",
     "error": "./view/error/error.html"
 }

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+
+/* NAVBAR CSS */
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #ff4b00;
+}
+
+/* LEFTNAV CSS */
+#leftNav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1em;
+    width: 50%;
+}
+
+#logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#logo img {
+    width: 2em;
+    height: 2em;
+    margin-left: 10px;
+}
+
+#navLinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#navLinks ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#navLinks ul li {
+    list-style: none;
+    margin: auto;
+    height: 100%;
+}
+
+#navLinks ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* RIGHTNAV CSS */
+
+#rightNav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+#rightNav button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+#rightNav button i {
+    font-size: 1.5em;
+}
+
+/* MODES  */
+#darkMode {
+    display: none;
+}
