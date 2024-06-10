@@ -173,6 +173,17 @@ nav {
   margin-bottom: 0.8em;
 }
 
+.anchorLinksTableDiv {
+  padding: 0.5em 0.8em;
+  border-right: 2px solid var(--text-color);
+  border-left: 2px solid var(--text-color);
+  border-top: 2px solid var(--text-color);
+}
+
+.anchorLinksTableDiv:nth-last-child(1) {
+  border-bottom: 2px solid var(--text-color);
+}
+
 .anchorLinksTableDiv h3 {
   font-family: "roboto", sans-serif;
 }
