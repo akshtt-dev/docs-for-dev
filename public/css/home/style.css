@@ -78,7 +78,12 @@ nav {
   color: var(--secondary-color);
   padding: 10px;
   font-size: 1.2em;
+  font-weight: bolder;
   font-family: "Poppins", sans-serif;
+}
+
+#navLinks ul li:hover {
+  text-decoration: underline var(--secondary-color);
 }
 
 /* RIGHTNAV CSS */
@@ -158,6 +163,25 @@ nav {
   font-family: sans-serif;
   color: var(--primary-color);
   text-align: center;
+}
+
+#anchorLinksTable {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0em 1em;
+  margin-bottom: 0.8em;
+}
+
+.anchorLinksTableDiv h3 {
+  font-family: "roboto", sans-serif;
+}
+
+.anchorLinksTableDiv h3 a {
+  font-size: 1em;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
 }
 
 /* MODES  */
