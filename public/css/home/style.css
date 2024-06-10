@@ -7,12 +7,15 @@
   --primary-color: #ff4b00;
   --secondary-color: #f5f5f5;
   --sectionOne-color: white;
+  --text-color: black;
 }
 
 .dark-theme {
   --primary-color: #ff4b00;
   --secondary-color: black;
   --sectionOne-color: #333;
+  --text-color: white;
+  --text-color-secondary: #c1c1c1;
 }
 
 body {
@@ -107,7 +110,6 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 100vh;
   padding: 1.8em 4em;
   gap: 2em;
 }
@@ -118,13 +120,44 @@ nav {
   background-color: var(--sectionOne-color);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
   border-radius: 1em;
+  padding: 1em;
 }
+
+#welcomeDivContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%;
+}
+
+#welcomeDivContent h1 {
+  font-size: 1.8em;
+  font-family: sans-serif;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+}
+
+#welcomeDivContent p {
+  font-size: 1.1em;
+  font-family: sans-serif;
+  color: var(--text-color-secondary);
+  margin-bottom: 0.5em;
+}
+
 #tableDiv {
   width: 25%;
   height: 100%;
   background-color: var(--sectionOne-color);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
   border-radius: 1em;
+}
+
+#tableDiv h2 {
+  font-size: 1.6em;
+  font-family: sans-serif;
+  color: var(--primary-color);
+  text-align: center;
 }
 
 /* MODES  */
