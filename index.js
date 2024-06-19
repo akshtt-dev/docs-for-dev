@@ -1,39 +1,42 @@
-const express = require('express');
-const app = express();
-const ansis = require('ansis');
-const { red, green, blue } = require('ansis');
-const config = require('./config.json');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import { engine } from 'express-handlebars';
+import mongoose from 'mongoose';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+dotenv.config();
 
-// Define directory containing static files (CSS, images)
-const staticDirectory = path.join(__dirname, 'public');
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+main().then((res) => console.log("Connected to database.")).catch(err => console.log(err));
+async function main() {
+  await mongoose.connect(process.env.MONGO_URI);
+}
+
+const app = express();
+const port = process.env.PORT || 3000;
 
 // Middleware to serve static files
-app.use(express.static(staticDirectory));
+app.use(express.static(join(__dirname, 'public')));
 
-// Reading Home File
-app.get('/', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.send(fs.readFileSync(config.home, 'utf8'));
-});
+// Setting up Handlebars as the view engine
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', join(__dirname, 'views')); // Updated line
 
-app.get('/docx', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.send(fs.readFileSync(config.docx, 'utf8'));
-});
-
-// app.get('/docx/dbh/ukiaio', (req, res) => {
-//     res.setHeader('Content-Type', 'text/html');
-//     res.send(fs.readFileSync(config.docx_dbh_ukiaio, 'utf8'));
-// });
-
-// Unknown requests
+// Middleware to remove trailing slashes from URLs
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, config.error));
+    if (req.path.substr(-1) === '/' && req.path.length > 1) {
+      const query = req.url.slice(req.path.length);
+      res.redirect(301, req.path.slice(0, -1) + query);
+    } else {
+      next();
+    }
 });
 
-// Listening to the requests
-app.listen(config.port, () => {
-    console.log(green`Listening on ${config.protocol}://${config.domain}:${config.port}`);
+import indexRouter from './routes/index.js';
+app.use('/', indexRouter);
+
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });

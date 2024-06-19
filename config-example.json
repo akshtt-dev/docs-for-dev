@@ -1,7 +1,0 @@
-{
-    "protocol": "http",
-    "domain": "localhost",
-    "port": 80,
-    "home": "./view/home/index.html",
-    "error": "./view/error/error.html"
-}
